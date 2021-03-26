@@ -1,0 +1,18 @@
+Checkpoint tanggal 25
+
+- Jumlah tabel 16
+- Bikin Master Layout
+- Buat Migration 16 ++ = bikin database tapi ngoding (Opsional)
+- Buat Model total 16
+
+
+Aturan Model : 
+
+1. Di Folder App\Model
+2. Nama File & Nama class harus Pascal Case, aku_makan -> AkuMakan
+3. yang diisi protected $table = 'user'; dan protected $guarded = [];
+4. Nama file & class sama
+
+
+User belongsTo Role -> 1 user hanya bisa memiliki 1 role
+Role hasMany user -> 1 Role bisa memiliki banyak user
