@@ -10,4 +10,8 @@ class ObatController extends Controller {
         return view('obat/index');
     }
 
+    public function detailObat() {
+        return view('obat/DetailObat');
+    }
+
 }
