@@ -12,14 +12,11 @@
     <meta name="msapplication-tap-highlight" content="no">
     @yield('meta')
 
-    <title>@yield('title') | Apotek Sukun Farma</title>
+    <title>@yield('title') | Apotek Sukun Farm</title>
 
     <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
-
-    <!-- @TODO Ganti jadi sesuai laravel -->
-    <link href="./main.css" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     @yield('css')
-
 </head>
 
 <body>
@@ -27,7 +24,10 @@
         <!-- Header -->
         <div class="app-header header-shadow" style="padding: 20px; height: 50px;">
             <div class="app-header__logo">
-                <div class="logo-src"></div>
+                <div>
+                    <span class="mx-0">Sistem Informasi Manajemen</span>
+                    <span class="mx-0 font-weight-bold">Apotek Sukun Farma</span>
+                </div>
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -59,15 +59,6 @@
                 </span>
             </div>
             <div class="app-header__content">
-                <div class="app-header-left">
-                    <div class="search-wrapper">
-                        <div class="input-holder">
-                            <input type="text" class="search-input" placeholder="Type to search">
-                            <button class="search-icon"><span></span></button>
-                        </div>
-                        <button class="close"></button>
-                    </div>
-                </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
                         <div class="widget-content p-0">
@@ -76,8 +67,8 @@
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg"
-                                                alt="">
+                                            <img width="42" class="rounded-circle"
+                                                src="{{ asset('image/avatars/1.jpg') }}" alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true"
@@ -102,7 +93,10 @@
             <!-- SideBar -->
             <div class="app-sidebar sidebar-shadow">
                 <div class="app-header__logo">
-                    <div class="logo-src"></div>
+                    <div>
+                        <span class="mx-0">Sistem Informasi Manajemen</span>
+                        <span class="mx-0 font-weight-bold">Apotek Sukun Farma</span>
+                    </div>
                     <div class="header__pane ml-auto">
                         <div>
                             <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -137,7 +131,7 @@
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
                             <li style="padding-top: 20px;">
-                                <a href="index.html" class="mm-active">
+                                <a href="index.html">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Dashboard
                                 </a>
@@ -242,33 +236,11 @@
                 <div class="app-wrapper-footer">
                     <div class="app-footer">
                         <div class="app-footer__inner">
-                            <div class="app-footer-left">
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            Footer Link 1
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            Footer Link 2
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                             <div class="app-footer-right">
                                 <ul class="nav">
                                     <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            Footer Link 3
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            <div class="badge badge-success mr-1 ml-0">
-                                                <small>NEW</small>
-                                            </div>
-                                            Footer Link 4
+                                        <a class="nav-link">
+                                            Apotek Sukun Farma ©2020 . All Right Reserved
                                         </a>
                                     </li>
                                 </ul>
@@ -283,8 +255,7 @@
 
     @yield('modal')
 
-    <!-- @TODO -->
-    <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
     @yield('js')
 </body>
 

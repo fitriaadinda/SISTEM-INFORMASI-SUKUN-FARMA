@@ -8,7 +8,7 @@
  =========================================================
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
-.border-primary {
+ .border-primary {
     border-color: #3f6ad8
 }
 
@@ -11067,7 +11067,7 @@ button,
 .app-header__logo .logo-src {
     height: 23px;
     width: 97px;
-    background: url(../image/logo-inverse.png)
+    /* background: url(../image/logo-inverse.png) */
 }
 
 .app-header__menu,
@@ -11684,11 +11684,10 @@ button,
 }
 
 .fixed-sidebar.closed-sidebar:not(.fixed-header) .app-sidebar .app-header__logo {
-    width: 80px;
     padding: 0
 }
 
-.fixed-sidebar.closed-sidebar:not(.fixed-header) .app-sidebar .app-header__logo .logo-src {
+.fixed-sidebar.closed-sidebar:not(.fixed-header) .app-sidebar .app-header__logo .logo-src .brand-text {
     display: none
 }
 
@@ -11802,11 +11801,11 @@ button,
     overflow: hidden !important
 }
 
-.closed-sidebar:not(.closed-sidebar-mobile) .app-header .app-header__logo {
-    width: 80px
-}
+/* .closed-sidebar:not(.closed-sidebar-mobile) .app-header .app-header__logo {
+    width: 0px;
+} */
 
-.closed-sidebar:not(.closed-sidebar-mobile) .app-header .app-header__logo .logo-src {
+.closed-sidebar:not(.closed-sidebar-mobile) .app-header .app-header__logo .logo-src .brand-text {
     display: none
 }
 
@@ -11824,7 +11823,8 @@ button,
 
 .closed-sidebar.closed-sidebar-mobile .app-sidebar .app-header__logo,
 .closed-sidebar.closed-sidebar-mobile .app-header .app-header__logo {
-    width: auto;
+    text-align: center;
+    /* width: auto; */
     display: flex
 }
 
@@ -11853,7 +11853,7 @@ button,
     width: 280px
 }
 
-.closed-sidebar.closed-sidebar-mobile .app-sidebar:hover .app-header__logo .logo-src {
+.closed-sidebar.closed-sidebar-mobile .app-sidebar:hover .app-header__logo .logo-src .brand-text{
     width: 97px;
     margin: 0
 }
