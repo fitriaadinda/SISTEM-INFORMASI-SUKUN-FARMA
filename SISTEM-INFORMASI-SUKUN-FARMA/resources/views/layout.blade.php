@@ -144,7 +144,7 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="#">
+                                        <a href="">
                                             <i class="metismenu-icon"></i>
                                             Semua Produk
                                         </a>
@@ -176,9 +176,15 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{ url('obat') }}">
                                             <i class="metismenu-icon">
                                             </i>Obat
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('kategori') }}">
+                                            <i class="metismenu-icon">
+                                            </i>Kategori
                                         </a>
                                     </li>
                                     <li>

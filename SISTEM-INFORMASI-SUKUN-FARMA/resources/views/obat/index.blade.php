@@ -37,9 +37,9 @@
                     <td>Kapsul</td>
                     <td>Rp. 3000000</td>
                     <td>
-                        <button class="mb-1 btn-transition btn btn-outline-dark btn-aksi">Detail</button>
-                        <button class="mb-1 btn-transition btn btn-outline-dark btn-aksi" data-toggle="modal" data-target="#editData">Edit</button>
-                        <button class="mb-1 btn-transition btn btn-outline-dark btn-aksi">Delete</button>
+                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="{{ url('obat/detailObat') }}">Detail</a>
+                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="" data-toggle="modal" data-target="#editData">Edit</a>
+                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="">Delete</a>
                     </td>
                 </tr>
                 <tr>
@@ -48,9 +48,9 @@
                     <td>Kapsul</td>
                     <td>Rp. 3000</td>
                     <td>
-                        <button class="mb-1 btn-transition btn btn-outline-dark btn-aksi">Detail</button>
-                        <button class="mb-1 btn-transition btn btn-outline-dark btn-aksi">Edit</button>
-                        <button class="mb-1 btn-transition btn btn-outline-dark btn-aksi">Delete</button>
+                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="{{ url('obat/detailObat') }}">Detail</a>
+                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="" data-toggle="modal" data-target="#editData">Edit</a>
+                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="">Delete</a>
                     </td>
                 </tr>
             </tbody>
