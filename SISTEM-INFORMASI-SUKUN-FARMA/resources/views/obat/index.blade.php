@@ -1,26 +1,25 @@
 @extends('layout')
 @section('title','List Obat')
 @section('css')
+<link href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
 <style>
     .btn-aksi {
         font-size: 12px;
         padding: 5px;
     }
-
 </style>
 @endsection
 @section('content')
 <h2 class="mb-5">DATA OBAT</h2>
 <div class="row">
     <div class="col-lg-6">
-        <button class="mb-3 mr-2 w-50 btn btn-primary" data-toggle="modal" data-target="#tambahData">Tambah Data
-            Obat</button>
+        <a href="{{ url('obat/create') }}" class="mb-3 mr-2 w-50 btn btn-primary">Tambah Data Obat</a>
     </div>
 </div>
 <div class="main-card mb-3 card">
     <div class="card-body">
         <h5 class="card-title">Kelola Data Obat</h5>
-        <table class="mb-0 table table-sm table-hover">
+        <table id="data-obat" class="mb-0 table table-sm table-hover">
             <thead>
                 <tr>
                     <th>Kode Obat</th>
@@ -31,145 +30,55 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($obat as $o)
                 <tr>
-                    <th scope="row">PRMX2567</th>
-                    <td>Paramex hvdrdeesxdhgy</td>
-                    <td>Kapsul</td>
-                    <td>Rp. 3000000</td>
+                    <th scope="row">{{ $o->kode_obat }}</th>
+                    <td>{{ $o->nama }}</td>
+                    <td>{{ $o->kategori->nama }}</td>
+                    <td>{{ $o->harga_jual }}</td>
                     <td>
-                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="{{ url('obat/detailObat') }}">Detail</a>
-                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="" data-toggle="modal" data-target="#editData">Edit</a>
-                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="">Delete</a>
+                        <!-- update : /id/edit,  detail /id -->
+                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi"
+                            href="{{ url('obat/'.$o->id) }}">Detail</a>
+                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="{{ url('obat/'.$o->id.'/edit') }}">Edit</a>
+                        <form method="post" action="{{ url('obat/'.$o->id)}}">
+                        @method('DELETE')
+                        @csrf
+                            <button type="submit"
+                                class="mb-1 btn-transition btn btn-outline-dark btn-aksi">Delete</button>
+                        </form>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">PRMX2567</th>
-                    <td>Paramex</td>
-                    <td>Kapsul</td>
-                    <td>Rp. 3000</td>
-                    <td>
-                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="{{ url('obat/detailObat') }}">Detail</a>
-                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="" data-toggle="modal" data-target="#editData">Edit</a>
-                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="">Delete</a>
-                    </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
 </div>
 @endsection
-
-@section('modal')
-<!-- Modal Tambah Data -->
-<div class="modal fade bd-example-modal-lg" id="tambahData" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-    <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="title-title" id="exampleModalLabel">Tambah Data Obat</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="">
-                    <div class="position-relative form-group">
-                        <label for="nama" class="font-weight-bold">Kode Obat</label>
-                        <input name="nama" id="nama" type="text" placeholder="Kode Obat" class="form-control" value="">
-                    </div>
-                    <div class="position-relative form-group">
-                        <label for="nama" class="font-weight-bold">Nama Obat</label>
-                        <input name="nama" id="nama" type="text" placeholder="Nama Obat" class="form-control" value="">
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="harga_jual" class="font-weight-bold">Harga Jual</label>
-                                <input name="harga_jual" id="harga_jual" placeholder="Harga Jual" type="text"
-                                    class="form-control" value="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="kategori" class="">Kategori</label>
-                                <select name="kategori" id="kategori" class="form-control">
-                                    <option>Kapsul</option>
-                                    <option>Sirup</option>
-                                    <option>Tetes Mata</option>
-                                    <option>Tetes Telinga</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Save changes</button>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Edit Data -->
-<div class="modal fade bd-example-modal-lg" id="editData" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-    <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="title-title" id="exampleModalLabel">Edit Data Obat</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="">
-                    <div class="position-relative form-group">
-                        <label for="nama" class="font-weight-bold">Kode Obat</label>
-                        <input name="nama" id="nama" type="text" placeholder="Kode Obat" class="form-control" value="PRMX2567">
-                    </div>
-                    <div class="position-relative form-group">
-                        <label for="nama" class="font-weight-bold">Nama Obat</label>
-                        <input name="nama" id="nama" type="text" placeholder="Nama Obat" class="form-control" value="Paramex hvdrdeesxdhgy">
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="harga_jual" class="font-weight-bold">Harga Jual</label>
-                                <input name="harga_jual" id="harga_jual" placeholder="Harga Jual" type="text"
-                                    class="form-control" value="Rp. 3000000">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="position-relative form-group">
-                                <label for="kategori" class="">Kategori</label>
-                                <select name="kategori" id="kategori" class="form-control">
-                                    <option>Kapsul</option>
-                                    <option>Sirup</option>
-                                    <option>Tetes Mata</option>
-                                    <option>Tetes Telinga</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Save changes</button>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-@endsection
-
 @section('js')
+<script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script>
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    })
-
+    $(document).ready(function () {
+        $('#data-obat').DataTable();
+    });
 </script>
+@if (session('success_message'))
+<script>
+    Swal.fire({
+        title: 'Berhasil!',
+        text: '{{ session('success_message') }}',
+        icon: 'success',
+    })
+</script>
+@endif
+
+@if (session('error_message'))
+<script>
+    Swal.fire({
+        title: 'Gagal!',
+        text: '{{ session('error_message') }}',
+        icon: 'error',
+    })
+</script>
+@endif
 @endsection

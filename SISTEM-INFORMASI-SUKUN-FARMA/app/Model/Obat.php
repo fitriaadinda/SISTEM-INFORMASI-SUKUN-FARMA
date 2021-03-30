@@ -6,18 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Obat extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
     protected $table = 'obat';
-
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
+    public $timestamps = false;
     protected $guarded = [];
 
     public function kategori() {

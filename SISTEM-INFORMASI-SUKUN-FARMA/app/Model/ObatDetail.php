@@ -6,19 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ObatDetail extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
     protected $table = 'obat_detail';
-
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
+    public $timestamps = false;
     protected $guarded = [];
+    protected $with = ['batch'];
 
     public function batch() {
         return $this->belongsTo('App\Model\BatchObat');
