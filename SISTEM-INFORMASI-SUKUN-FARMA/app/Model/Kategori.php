@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Kategori extends Model
 {
     /**
@@ -12,6 +13,7 @@ class Kategori extends Model
      * @var string
      */
     protected $table = 'kategori';
+    public $timestamps = false;
 
     /**
      * The attributes that aren't mass assignable.

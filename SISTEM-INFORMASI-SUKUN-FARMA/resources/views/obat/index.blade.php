@@ -37,17 +37,28 @@
                     <td>{{ $o->kategori->nama }}</td>
                     <td>{{ $o->harga_jual }}</td>
                     <td>
+                    <div class="row">
+                            <div class="col-2">
                         <!-- update : /id/edit,  detail /id -->
                         <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi"
                             href="{{ url('obat/'.$o->id) }}">Detail</a>
+                            </div>
+                            <div class="col-2" style="
+    margin-left: -5px;
+">
                         <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="{{ url('obat/'.$o->id.'/edit') }}">Edit</a>
-                        <form method="post" action="{{ url('obat/'.$o->id)}}">
+                        </div>
+                        <div class="col-2" style="
+    margin-left: -15px;
+">
+                        <form method="post" action="{{('obat/'.$o->id)}}">
                         @method('DELETE')
                         @csrf
                             <button type="submit"
                                 class="mb-1 btn-transition btn btn-outline-dark btn-aksi">Delete</button>
                         </form>
                     </td>
+                        </div>
                 </tr>
                 @endforeach
             </tbody>
@@ -56,6 +67,7 @@
 </div>
 @endsection
 @section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function () {
