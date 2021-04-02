@@ -17,20 +17,14 @@ class RoleController extends Controller
 
     public function prosesTambah(Request $request)
     {
-        // $input = $request->validated();
-
         Role::create($request->all());
-        // $kategori = new Kategori();
-        // $kategori->nama = $input['nama'];
-        // $kategori->save();
-
         return redirect()->back()->with('success_message', 'Data berhasil ditambahkan');
     }
 
     public function prosesEdit(Request $request, $id)
     {
         Role::where(['id'=> $id ])->update(['nama'=>$request->input('nama')]);
-        return redirect()->back()->with('success_message', 'Data berhasil ditambahkan');
+        return redirect()->back()->with('success_message', 'Data berhasil diubah');
     }
 
     public function destroy($id)

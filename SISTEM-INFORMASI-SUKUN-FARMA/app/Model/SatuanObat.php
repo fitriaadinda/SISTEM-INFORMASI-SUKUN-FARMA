@@ -12,6 +12,7 @@ class SatuanObat extends Model
      * @var string
      */
     protected $table = 'satuan_obat';
+    public $timestamps = false;
 
     /**
      * The attributes that aren't mass assignable.

@@ -238,7 +238,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{ url ('satuan') }}">
                                             <i class="metismenu-icon">
                                             </i>Satuan
                                         </a>

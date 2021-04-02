@@ -35,3 +35,9 @@ Route::get('role', 'RoleController@index');
 Route::post('role/action/tambah', 'RoleController@prosesTambah');
 Route::put('role/action-edit/{id}', 'RoleController@prosesEdit');
 Route::delete('role/{id}', 'RoleController@destroy');
+
+// CRUD SATUAN
+Route::get('satuan', 'satuanController@index');
+Route::post('satuan/action/tambah', 'SatuanController@prosesTambah');
+Route::put('satuan/action-edit/{id}', 'SatuanController@prosesEdit');
+Route::delete('satuan/{id}', 'SatuanController@destroy');
