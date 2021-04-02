@@ -29,3 +29,9 @@ Route::resource('resep', 'ResepController');
 
 //PENGELUARAN
 Route::resource('pengeluaran', 'PengeluaranController');
+
+// CRUD ROLE
+Route::get('role', 'RoleController@index');
+Route::post('role/action/tambah', 'RoleController@prosesTambah');
+Route::put('role/action-edit/{id}', 'RoleController@prosesEdit');
+Route::delete('role/{id}', 'RoleController@destroy');

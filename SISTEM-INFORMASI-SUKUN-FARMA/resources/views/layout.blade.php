@@ -16,6 +16,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     @yield('css')
 </head>
 
@@ -132,21 +134,16 @@
                         <ul class="vertical-nav-menu">
                             <li style="padding-top: 20px;">
                                 <a href="index.html">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
-                                    Dashboard
+                                   <i class="metismenu-icon pe-7s-rocket"></i>Dashboard
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="metismenu-icon pe-7s-calculator"></i>
-                                    Kasir
-                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                                </a>
+                                <a href="#"><i class="metismenu-icon pe-7s-calculator"></i>
+                                Kasir<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
                                 <ul>
                                     <li>
                                         <a href="">
-                                            <i class="metismenu-icon"></i>
-                                            Semua Produk
+                                            <i class="metismenu-icon"></i>Semua Produk
                                         </a>
                                     </li>
                                     <li>
@@ -179,12 +176,6 @@
                                         <a href="{{ url('obat') }}">
                                             <i class="metismenu-icon">
                                             </i>Obat
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('kategori') }}">
-                                            <i class="metismenu-icon">
-                                            </i>Kategori
                                         </a>
                                     </li>
                                     <li>
@@ -228,6 +219,44 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="index.html">
+                                   <i class="metismenu-icon pe-7s-users"></i>Users
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="metismenu-icon pe-7s-tools"></i>
+                                    Tools
+                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="{{url('role')}}">
+                                            <i class="metismenu-icon">
+                                            </i>Role
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="metismenu-icon">
+                                            </i>Satuan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="metismenu-icon">
+                                            </i>Komparasi Satuan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{url('kategori')}}">
+                                            <i class="metismenu-icon">
+                                            </i>Kategori
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -262,9 +291,9 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     @yield('js')
 </body>
 
