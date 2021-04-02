@@ -7,6 +7,17 @@
         font-size: 12px;
         padding: 5px;
     }
+
+    @media only screen and (min-width: 768px) {
+        .mobile-button-delete{
+            margin-left: -15px;
+        }
+        .mobile-button-edit{
+            margin-left: -5px;
+        }
+}
+
+
 </style>
 @endsection
 @section('content')
@@ -37,33 +48,30 @@
                     <td>{{ $o->kategori->nama }}</td>
                     <td>{{ $o->harga_jual }}</td>
                     <td>
-                    <div class="row">
-                            <div class="col-2">
-                        <!-- update : /id/edit,  detail /id -->
-                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi"
-                            href="{{ url('obat/'.$o->id) }}">Detail</a>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <!-- update : /id/edit,  detail /id -->
+                                <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi"
+                                    href="{{ url('obat/'.$o->id) }}">Detail</a>
                             </div>
-                            <div class="col-2" style="
-    margin-left: -5px;
-">
-                        <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="{{ url('obat/'.$o->id.'/edit') }}">Edit</a>
-                        </div>
-                        <div class="col-2" style="
-    margin-left: -15px;
-">
-                        <form method="post" action="{{('obat/'.$o->id)}}">
-                        @method('DELETE')
-                        @csrf
-                            <button type="submit"
-                                class="mb-1 btn-transition btn btn-outline-dark btn-aksi">Delete</button>
-                        </form>
+                            <div class="col-sm-2 mobile-button-edit">
+                                <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi"
+                                    href="{{ url('obat/'.$o->id.'/edit') }}">Edit</a>
+                            </div>
+                            <div class="col-sm-2 mobile-button-delete">
+                                <form method="post" action="{{('obat/'.$o->id)}}">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit"
+                                        class="mb-1 btn-transition btn btn-outline-dark btn-aksi">Delete</button>
+                                </form>
                     </td>
-                        </div>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
     </div>
+    </tr>
+    @endforeach
+    </tbody>
+    </table>
+</div>
 </div>
 @endsection
 @section('js')
@@ -73,6 +81,7 @@
     $(document).ready(function () {
         $('#data-obat').DataTable();
     });
+
 </script>
 @if (session('success_message'))
 <script>
@@ -81,6 +90,7 @@
         text: '{{ session('success_message') }}',
         icon: 'success',
     })
+
 </script>
 @endif
 
@@ -91,6 +101,7 @@
         text: '{{ session('error_message') }}',
         icon: 'error',
     })
+
 </script>
 @endif
 @endsection

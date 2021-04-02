@@ -59,7 +59,7 @@
         </div>
     </div>
     <div class="float-right">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <a class="btn btn-danger" href="{{ url('obat') }}">Close</a>
         <button type="submit" class="btn btn-success ">Save changes</button>
     </div>
 </form>

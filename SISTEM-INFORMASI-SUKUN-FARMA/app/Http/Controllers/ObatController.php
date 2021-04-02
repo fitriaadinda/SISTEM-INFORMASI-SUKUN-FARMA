@@ -49,7 +49,7 @@ class ObatController extends Controller
         $obat->kategori_id = $input['kategori'];
         $obat->save();
 
-        return redirect('obat')->with('success_message', 'Obat berhasil ditambahkan');
+        return redirect('obat')->with('success_message', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -61,7 +61,7 @@ class ObatController extends Controller
     public function show($id)
     {
         $payload['obat'] = Obat::with(['kategori', 'batchObat', 'detailObat'])->where('id', $id)->first();
-        if (!$payload['obat']) return redirect('obat')->with('error_message', 'Obat tidak ditemukan');
+        if (!$payload['obat']) return redirect('obat')->with('error_message', 'Data tidak ditemukan');
 
         return view('obat/detail', $payload);
     }
@@ -76,7 +76,7 @@ class ObatController extends Controller
     {
         $payload['kategori'] = Kategori::all();
         $payload['obat'] = Obat::find($id);
-        if (!$payload['obat']) return redirect('obat')->with('error_message', 'Obat tidak ditemukan');
+        if (!$payload['obat']) return redirect('obat')->with('error_message', 'Data tidak ditemukan');
 
         return view('obat/edit', $payload);
     }
@@ -99,7 +99,7 @@ class ObatController extends Controller
         $obat->kategori_id = $input['kategori'];
         $obat->save();
 
-        return redirect('obat')->with('success_message', 'Obat berhasil diubah');
+        return redirect('obat')->with('success_message', 'Data berhasil diubah');
     }
 
     /**
@@ -111,9 +111,9 @@ class ObatController extends Controller
     public function destroy($id)
     {
         $obat = Obat::find($id);
-        if (!$obat) return redirect('obat')->with('error_message', 'Obat tidak ditemukan');
+        if (!$obat) return redirect('obat')->with('error_message', 'Data tidak ditemukan');
         $obat->delete();
 
-        return redirect('obat')->with('success_message', 'Obat berhasil dihapus');
+        return redirect('obat')->with('success_message', 'Data berhasil dihapus');
     }
 }

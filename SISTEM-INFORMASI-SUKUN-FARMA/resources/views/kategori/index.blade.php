@@ -65,7 +65,7 @@
         <div class="modal-content">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="title-title" id="exampleModalLabel">Tambah Data Obat</h5>
+                    <h5 class="title-title" id="exampleModalLabel">Tambah Data Kategori</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -85,7 +85,7 @@
                         <div class="position-relative form-group">
                             <label for="nama" class="font-weight-bold">Kategori</label>
                             <input name="nama" id="nama" type="text" placeholder="Kategori" class="form-control"
-                                value="{{old('nama')}}">
+                                value="{{old('nama')}}" required>
                         </div>
 
                 </div>
@@ -117,7 +117,7 @@
                         @csrf
                         <div class="position-relative form-group">
                             <label for="nama" class="font-weight-bold">Kategori</label>
-                            <input name="nama" id="nama" type="text" placeholder="Kode Obat" class="form-control"
+                            <input name="nama" id="nama" type="text" placeholder="Kategori" class="form-control"
                                 value="{{ $kt->nama }}">
                         </div>
                 </div>
@@ -144,8 +144,7 @@
 <script>
     Swal.fire({
         title: 'Berhasil!',
-        text: '{{ session('
-        success_message ') }}',
+        text: '{{ session('success_message') }}',
         icon: 'success',
     })
 
@@ -156,8 +155,7 @@
 <script>
     Swal.fire({
         title: 'Gagal!',
-        text: '{{ session('
-        error_message ') }}',
+        text: '{{ session('error_message ') }}',
         icon: 'error',
     })
 

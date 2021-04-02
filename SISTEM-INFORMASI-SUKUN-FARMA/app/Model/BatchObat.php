@@ -12,6 +12,7 @@ class BatchObat extends Model
      * @var string
      */
     protected $table = 'batch_obat';
+    public $timestamps = false;
 
     /**
      * The attributes that aren't mass assignable.

@@ -20,7 +20,7 @@ class KategoriController extends Controller
         return view('kategori/index');
     }
 
-    public function store(TambahKategori $request)
+    public function store(Request $request)
     {
         // $input = $request->validated();
 
