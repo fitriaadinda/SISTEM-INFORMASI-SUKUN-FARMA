@@ -1,11 +1,7 @@
 @extends('layout')
-@section('title','List Obat')
+@section('title','Kategori')
 @section('css')
 <style>
-    .btn-aksi {
-        font-size: 12px;
-        padding: 5px;
-    }
 
 </style>
 @endsection
@@ -34,20 +30,14 @@
                     <th scope="row">{{ $no++ }}</th>
                     <td>{{ $k->nama }}</td>
                     <td>
-                        <div class="row">
-                            <div class="col-1">
-                                <button class="mb-1 btn-transition btn btn-outline-dark btn-aksi" data-toggle="modal"
-                                    data-target="#editData-{{$k->id}}">Edit</button>
-                            </div>
-                            <div class="col-2">
-                                <form method="post" action="{{('kategori/'.$k->id)}}">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="mb-1 btn-transition btn btn-outline-dark btn-aksi"
-                                        style="display: block">Delete</button>
-                                </form>
-                            </div>
-                        </div>
+                        <button class="mb-1 btn-transition btn btn-outline-dark btn-sm" data-toggle="modal"
+                            data-target="#editData-{{$k->id}}">Edit</button>
+                        <form method="post" action="{{('kategori/'.$k->id)}}" style="display: inline">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit"
+                                class="mb-1 btn-transition btn btn-outline-dark btn-sm">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -138,7 +128,6 @@
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
     })
-
 </script>
 @if (session('success_message'))
 <script>
@@ -147,7 +136,6 @@
         text: '{{ session('success_message') }}',
         icon: 'success',
     })
-
 </script>
 @endif
 
@@ -155,10 +143,9 @@
 <script>
     Swal.fire({
         title: 'Gagal!',
-        text: '{{ session('error_message ') }}',
+        text: '{{ session('error_message') }}',
         icon: 'error',
     })
-
 </script>
 @endif
 @endsection

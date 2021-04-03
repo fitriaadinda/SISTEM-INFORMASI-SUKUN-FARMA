@@ -21,7 +21,10 @@ class BatchController extends Controller
 
         // BatchObat::create($request->input('kode_batch'));
         $batch = Obat::find($obat_id);
-        $batch->batchObat()->create(['kode_batch' => $request->input('kode_batch')]);
+        $batch->batchObat()->create([
+            'kode_batch' => $request->input('kode_batch')
+        
+        ]);
 
         return redirect()->back()->with('success_message', 'Data berhasil ditambahkan');
     }

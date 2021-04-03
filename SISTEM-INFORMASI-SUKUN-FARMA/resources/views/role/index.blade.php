@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title','List Kategori')
+@section('title','Role')
 @section('css')
 <style>
 

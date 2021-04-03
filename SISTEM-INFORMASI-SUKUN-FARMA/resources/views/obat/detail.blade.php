@@ -2,10 +2,6 @@
 @section('title','Detail Obat')
 @section('css')
 <style>
-    .btn-aksi {
-        font-size: 12px;
-        padding: 5px;
-    }
 
 </style>
 @endsection
@@ -48,7 +44,7 @@
 </div>
 <div class="main-card mb-5 card">
     <div class="card-body">
-        <table class="mb-0 table table-sm table-hover">
+        <table id="batchTable" class="mb-0 table table-sm table-hover">
             <thead>
                 <tr>
                     <th>No</th>
@@ -62,23 +58,14 @@
                     <th scope="row">{{ $key + 1 }}</th>
                     <td>{{ $batch->kode_batch }}</td>
                     <td>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <button class="mb-1 btn-transition btn btn-outline-dark btn-aksi" data-toggle="modal"
-                                    data-target="#editData-{{$batch->id}}">Edit</button>
-                            </div>
-                            <div class="col-sm-2">
-                                <form method="post" action="{{ url('batch/'.$batch->id) }}">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="mb-1 btn-transition btn btn-outline-dark btn-aksi"
-                                        style="display: block">Delete</button>
-                                </form>
-                            </div>
-                        </div>
+                        <button class="mb-1 btn-transition btn btn-outline-dark btn-sm" data-toggle="modal"
+                            data-target="#editData-{{$batch->id}}">Edit</button>
+                        <form method="post" action="{{ url('batch/'.$batch->id) }}" style="display: inline">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="mb-1 btn-transition btn btn-outline-dark btn-sm">Delete</button>
+                        </form>
                     </td>
-                </tr>
-                <tr>
                 </tr>
                 @endforeach
             </tbody>
@@ -98,7 +85,7 @@
 </div>
 <div class="card-border mb-3 card card-body border-secondary">
     <div class="card-body">
-        <table class="mb-0 table table-sm table-hover">
+        <table id="detailTable" class="mb-0 table table-sm table-hover">
             <thead>
                 <tr>
                     <th>No</th>
@@ -118,19 +105,14 @@
                     <td>{{ $detail->harga_beli }}</td>
                     <td>{{ $detail->stock }}</td>
                     <td>
-                        <div class="row">
-                            <div class="col-sm-2">
-                            <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi" href="{{ url('detail/' .$detail->id. '/edit') }}">Edit</a>
-                            </div>
-                            <div class="col-sm-2">
-                                <form method="post" action="{{ url('detail/'.$detail->id) }}">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="mb-1 btn-transition btn btn-outline-dark btn-aksi"
-                                        style="display: block">Delete</button>
-                                </form>
-                            </div>
-                        </div>
+                        <a class="mb-1 btn-transition btn btn-outline-dark btn-sm"
+                            href="{{ url('detail/' .$detail->id. '/edit') }}">Edit</a>
+                        <form method="post" action="{{ url('detail/'.$detail->id) }}" style="display: inline">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit"
+                                class="mb-1 btn-transition btn btn-outline-dark btn-sm">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -138,7 +120,6 @@
         </table>
     </div>
 </div>
-
 @endsection
 
 @section('modal')
@@ -163,11 +144,11 @@
                                 class="form-control" value="" required>
                         </div>
                 </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-success">Save changes</button>
-                        </div>
-                    </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Save changes</button>
+                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -188,30 +169,41 @@
                 </div>
                 <div class="modal-body">
                     <form class="" method="post" action="{{url('batch/'.$batch->id)}}">
-                    @method('PUT')
+                        @method('PUT')
                         @csrf
                         <div class="position-relative form-group">
                             <label for="kode_batch" class="font-weight-bold">No.Batch Obat</label>
-                            <input name="kode_batch" id="kode_batch" type="text" class="form-control" value="{{$batch->kode_batch}}">
+                            <input name="kode_batch" id="kode_batch" type="text" class="form-control"
+                                value="{{$batch->kode_batch}}">
                         </div>
                 </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-success">Save changes</button>
-                        </div>
-                    </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Save changes</button>
+                </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 @endforeach
 @endsection
-
 @section('js')
 <script>
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    })
+    console.log($('#batchTable'))
+    $('#batchTable').DataTable({
+        "lengthMenu": [
+            [3, 5, 10, -1],
+            [3, 5, 10, "All"]
+        ]
+    });
+
+    $('#detailTable').DataTable({
+        "lengthMenu": [
+            [3, 5, 10, -1],
+            [3, 5, 10, "All"]
+        ]
+    });
 
 </script>
 @endsection

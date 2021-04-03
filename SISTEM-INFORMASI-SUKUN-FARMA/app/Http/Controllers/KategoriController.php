@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TambahKategori;
 use App\Model\Kategori;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 
@@ -29,14 +30,7 @@ class KategoriController extends Controller
         // $kategori->nama = $input['nama'];
         // $kategori->save();
 
-        return redirect()->back()->with('success_message', 'Kategori berhasil ditambahkan');
-    }
-
-    public function edit(Request $request, $id){
-        $payload['kategori'] = Kategori::find($id);
-        if (!$payload['kategori']) return redirect()->back()->with('error_message', 'Obat tidak ditemukan');
-
-        return view('kategori/index', $payload);
+        return redirect()->back()->with('success_message', 'Data berhasil ditambahkan');
     }
 
     public function update(Request $request, $id)
