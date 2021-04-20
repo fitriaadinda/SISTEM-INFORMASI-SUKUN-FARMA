@@ -28,10 +28,10 @@ class Obat extends Model
     
     public function resep(){
         return $this->belongsToMany('App\Model\Resep')
-                    ->using('App\Model\ResepObat')
+                    ->using('App\Model\ObatResep')
                     ->withPivot([
                         'qty',
-                        'satuan_obat'
+                        'satuan_obat_id'
                     ]);
     }
 }

@@ -12,6 +12,7 @@ class Resep extends Model
      * @var string
      */
     protected $table = 'resep';
+    public $timestamps = false;
 
     /**
      * The attributes that aren't mass assignable.
@@ -26,10 +27,10 @@ class Resep extends Model
 
     public function obat(){
         return $this->belongsToMany('App\Model\Obat')
-                    ->using('App\Model\ResepObat')
+                    ->using('App\Model\ObatResep')
                     ->withPivot([
                         'qty',
-                        'satuan_obat'
+                        'satuan_obat_id'
                     ]);
     }
 
