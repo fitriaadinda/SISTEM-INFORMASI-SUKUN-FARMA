@@ -4,14 +4,14 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class TransaksiObat extends Pivot
+class ObatTransaksi extends Pivot
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'transaksi_obat';
+    protected $table = 'obat_transaksi';
 
     /**
      * The attributes that aren't mass assignable.

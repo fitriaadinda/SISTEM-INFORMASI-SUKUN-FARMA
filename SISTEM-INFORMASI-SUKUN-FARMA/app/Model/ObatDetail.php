@@ -31,7 +31,7 @@ class ObatDetail extends Model
 
     public function transaksi(){
         return $this->belongsToMany('App\Model\Transaksi')
-                    ->using('App\Model\TransaksiObat')
+                    ->using('App\Model\ObatTransaksi')
                     ->withPivot([
                         'qty',
                         'resep',

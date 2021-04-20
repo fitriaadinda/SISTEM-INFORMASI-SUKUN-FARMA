@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['page' => 'obat'])
 @section('title','Detail Obat')
 @section('css')
 <style>

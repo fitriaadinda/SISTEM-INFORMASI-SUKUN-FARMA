@@ -33,7 +33,7 @@ class SatuanObat extends Model
         return $this->hasMany('App\Model\TransaksiObat');
     }
 
-    public function resepObat() {
+    public function obatResep() {
         return $this->hasMany('App\Model\ResepObat');
     }
 

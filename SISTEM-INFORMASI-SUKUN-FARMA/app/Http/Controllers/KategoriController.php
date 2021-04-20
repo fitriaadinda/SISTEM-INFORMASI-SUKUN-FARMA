@@ -46,7 +46,7 @@ class KategoriController extends Controller
     public function destroy($id)
     {
         $kategori = Kategori::find($id);
-        if (!$kategori) return redirect('kategori')->with('error_message', 'Obat tidak ditemukan');
+        if (!$kategori) return redirect('kategori')->with('error_message', 'Kategori tidak ditemukan');
         $kategori->delete();
 
         return redirect('kategori')->with('success_message', 'Data berhasil dihapus');

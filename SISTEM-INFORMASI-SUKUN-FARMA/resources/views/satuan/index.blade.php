@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['page' => 'satuan'])
 @section('title','Satuan')
 @section('css')
 <style>
@@ -125,11 +125,6 @@
 @endsection
 
 @section('js')
-<script>
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    })
-</script>
 @if (session('success_message'))
 <script>
     Swal.fire({

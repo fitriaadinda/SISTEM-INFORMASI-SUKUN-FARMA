@@ -12,7 +12,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     @yield('meta')
 
-    <title>@yield('title') | Apotek Sukun Farm</title>
+    <title>@yield('title') | Apotek Sukun Farma</title>
 
     <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
@@ -133,86 +133,86 @@
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
                             <li style="padding-top: 20px;">
-                                <a href="index.html">
-                                   <i class="metismenu-icon pe-7s-rocket"></i>Dashboard
+                                <a href="{{ url('/') }}" @if($page == 'dashboard') class="mm-active" @endif>
+                                    <i class="metismenu-icon pe-7s-rocket"></i>Dashboard
                                 </a>
                             </li>
-                            <li>
-                                <a href="#"><i class="metismenu-icon pe-7s-calculator"></i>
-                                Kasir<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
+                            <li @if(in_array($page, ['semua_produk', 'kasir', 'resep', 'riwayat_transaksi'])) class="mm-active" @endif>
+                                <a href="#" @if(in_array($page, ['semua_produk', 'kasir', 'resep', 'riwayat_transaksi'])) aria-expanded="true" @else aria-expanded="false" @endif><i class="metismenu-icon pe-7s-calculator"></i>
+                                    Kasir<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
                                 <ul>
                                     <li>
-                                        <a href="">
+                                        <a href="" @if($page == 'semua_produk') class="mm-active" @endif>
                                             <i class="metismenu-icon"></i>Semua Produk
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" @if($page == 'kasir') class="mm-active" @endif>
                                             <i class="metismenu-icon"></i>Kasir
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('resep') }}">
+                                        <a href="{{ url('resep') }}" @if($page == 'resep') class="mm-active" @endif>
                                             <i class="metismenu-icon">
                                             </i>Resep
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" @if($page == 'riwayat_transaksi') class="mm-active" @endif>
                                             <i class="metismenu-icon">
                                             </i>Riwayat Transaksi
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#">
+                            <li @if(in_array($page, ['obat', 'transaksi_masuk'])) class="mm-active" @endif>
+                                <a href="#" href="#" @if(in_array($page, ['obat', 'transaksi_masuk'])) aria-expanded="true" @else aria-expanded="false" @endif>
                                     <i class="metismenu-icon pe-7s-box1"></i>
                                     Gudang
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="{{ url('obat') }}">
+                                        <a href="{{ url('obat') }}" @if($page == 'obat') class="mm-active" @endif>
                                             <i class="metismenu-icon">
                                             </i>Obat
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" @if($page == 'pengadaan') class="mm-active" @endif>
                                             <i class="metismenu-icon">
-                                            </i>Transaksi Masuk
+                                            </i>Pengadaan
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#">
+                            <li @if(in_array($page, ['pengeluaran', 'riwayat_penjualan', 'riwayat_pembelian', 'laba_rugi'])) class="mm-active" @endif>
+                                <a href="#" @if(in_array($page, ['pengeluaran', 'riwayat_penjualan', 'riwayat_pembelian', 'laba_rugi'])) aria-expanded="true" @else aria-expanded="false" @endif>
                                     <i class="metismenu-icon pe-7s-notebook"></i>
                                     Akuntansi
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="{{ url('pengeluaran') }}">
+                                        <a href="{{ url('pengeluaran') }}" @if($page == 'pengeluaran') class="mm-active" @endif>
                                             <i class="metismenu-icon">
                                             </i>Pengeluaran
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" @if($page == 'riwayat_penjualan') class="mm-active" @endif>
                                             <i class="metismenu-icon">
                                             </i>Riwayat Penjualan
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" @if($page == 'riwayat_pembelian') class="mm-active" @endif>
                                             <i class="metismenu-icon">
                                             </i>Riwayat Pembelian
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" @if($page == 'laba_rugi') class="mm-active" @endif>
                                             <i class="metismenu-icon">
                                             </i>Laba / Rugi
                                         </a>
@@ -220,39 +220,51 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="index.html">
-                                   <i class="metismenu-icon pe-7s-users"></i>Users
+                                <a href="{{ url('user') }}" @if($page == 'user') class="mm-active" @endif>
+                                    <i class="metismenu-icon pe-7s-users"></i>Users
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
+                            <li @if(in_array($page, ['distributor', 'komparasi_satuan', 'kategori', 'satuan', 'role', 'jenis_pengeluaran'])) class="mm-active" @endif>
+                                <a href="#" @if(in_array($page, ['distributor', 'komparasi_satuan', 'kategori', 'satuan', 'role', 'jenis_pengeluaran'])) aria-expanded="true" @else aria-expanded="false" @endif>
                                     <i class="metismenu-icon pe-7s-tools"></i>
                                     Tools
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="{{url('role')}}">
+                                        <a href="{{url('distributor')}}" @if($page == 'distributor') class="mm-active" @endif>
                                             <i class="metismenu-icon">
-                                            </i>Role
+                                            </i>Distributor
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ url ('satuan') }}">
+                                        <a href="{{ url ('jenis-pengeluaran') }}" @if($page == 'jenis_pengeluaran') class="mm-active" @endif>
                                             <i class="metismenu-icon">
-                                            </i>Satuan
+                                            </i>Jenis Pengeluaran
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{url('kategori')}}" @if($page == 'kategori') class="mm-active" @endif>
+                                            <i class="metismenu-icon">
+                                            </i>Kategori
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{url('komparasi')}}" @if($page == 'komparasi_satuan') class="mm-active" @endif>
                                             <i class="metismenu-icon">
                                             </i>Komparasi Satuan
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{url('kategori')}}">
+                                        <a href="{{url('role')}}" @if($page == 'role') class="mm-active" @endif>
                                             <i class="metismenu-icon">
-                                            </i>Kategori
+                                            </i>Role
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url ('satuan') }}" @if($page == 'satuan') class="mm-active" @endif>
+                                            <i class="metismenu-icon">
+                                            </i>Satuan
                                         </a>
                                     </li>
                                 </ul>

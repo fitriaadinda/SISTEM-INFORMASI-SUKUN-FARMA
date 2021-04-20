@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['page' => 'obat'])
 @section('title','List Obat')
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">

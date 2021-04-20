@@ -1,12 +1,8 @@
-@extends('layout')
+@extends('layout', ['page' => 'obat'])
 @section('title','Tambah Detail')
 @section('css')
 <style>
-    .btn-aksi {
-        font-size: 12px;
-        padding: 5px;
-    }
-
+    
 </style>
 @endsection
 @section('content')

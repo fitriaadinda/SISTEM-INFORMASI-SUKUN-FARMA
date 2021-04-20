@@ -8,6 +8,7 @@
  =========================================================
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
+
  .border-primary {
     border-color: #3f6ad8
 }
@@ -7133,7 +7134,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-    background-color: #f8d568fc !important
+    background-color: #3f6ad8  !important
 }
 
 a.bg-primary:hover,
@@ -7291,7 +7292,7 @@ button.bg-alternate:focus {
 }
 
 .border-primary {
-    border-color: #f8d568fc !important
+    border-color: #3f6ad8 !important
 }
 
 .border-secondary {
@@ -10853,7 +10854,7 @@ button.bg-alternate:focus {
 }
 
 .text-primary {
-    color: #f8d568fc !important
+    color: #3f6ad8 !important
 }
 
 a.text-primary:hover,
@@ -11489,16 +11490,16 @@ button,
     padding: 0 1.5rem 0
 }
 
-.vertical-nav-menu ul>li>a:hover {
+/* .vertical-nav-menu ul>li>a:hover {
     color: #f8d568fc;
-}
+} */
 
 .vertical-nav-menu ul>li>a .metismenu-icon {
     display: none
 }
 
 .vertical-nav-menu ul>li>a.mm-active {
-    color: #f8d568fc;
+    color: #6c757d;
     background: #f8d56859;
     font-weight: bold
 }
