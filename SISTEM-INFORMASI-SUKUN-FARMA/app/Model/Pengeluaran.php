@@ -12,6 +12,7 @@ class Pengeluaran extends Model
      * @var string
      */
     protected $table = 'pengeluaran';
+    public $timestamps = false;
 
     /**
      * The attributes that aren't mass assignable.
@@ -20,8 +21,7 @@ class Pengeluaran extends Model
      */
     protected $guarded = [];
 
-    public function user()
-    {
-        return $this->belongsTo('App\Model\User');
+    public function jenisPengeluaran() {
+        return $this->belongsTo('App\Model\JenisPengeluaran');
     }
 }
