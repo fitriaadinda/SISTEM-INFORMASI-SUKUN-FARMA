@@ -12,6 +12,8 @@ class User extends Model
      * @var string
      */
     protected $table = 'user';
+    public $timestamps = false;
+    
 
     /**
      * The attributes that aren't mass assignable.
