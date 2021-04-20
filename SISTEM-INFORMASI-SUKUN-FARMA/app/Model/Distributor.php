@@ -12,6 +12,7 @@ class Distributor extends Model
      * @var string
      */
     protected $table = 'distributor';
+    public $timestamps = false;
 
     /**
      * The attributes that aren't mass assignable.
