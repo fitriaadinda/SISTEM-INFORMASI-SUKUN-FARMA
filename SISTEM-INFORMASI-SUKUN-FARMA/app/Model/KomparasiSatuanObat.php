@@ -12,6 +12,7 @@ class KomparasiSatuanObat extends Model
      * @var string
      */
     protected $table = 'komparasi_satuan_obat';
+    public $timestamps = false;
 
     /**
      * The attributes that aren't mass assignable.
