@@ -15,6 +15,10 @@ class ObatDetail extends Model
         return $this->belongsTo('App\Model\BatchObat');
     }
 
+    public function distributor() {
+        return $this->belongsTo('App\Model\Distributor');
+    }
+
     public function obat() {
         return $this->belongsTo('App\Model\Obat');
     }

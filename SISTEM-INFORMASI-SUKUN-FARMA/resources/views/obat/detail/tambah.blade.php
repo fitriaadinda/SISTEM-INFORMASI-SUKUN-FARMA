@@ -2,7 +2,7 @@
 @section('title','Tambah Detail')
 @section('css')
 <style>
-    
+
 </style>
 @endsection
 @section('content')
@@ -22,7 +22,8 @@
         <div class="card-body">
             <div class="position-relative form-group disabled">
                 <label for="nama" class="font-weight-bold">Nama Obat</label>
-                <input name="nama" id="nama" type="text" placeholder="" class="form-control" value="{{$obat->nama}}" disabled>
+                <input name="nama" id="nama" type="text" placeholder="" class="form-control" value="{{$obat->nama}}"
+                    disabled>
             </div>
             <div class="form-row">
                 <div class="col-md-6">
@@ -35,12 +36,22 @@
                     <div class="position-relative form-group">
                         <label for="kode_batch" class="">No. Batch</label>
                         <select name="kode_batch" id="kode_batch" class="form-control">
-                        @foreach ($obat->batchObat as $key => $batch)
-                                <option value="{{$batch->id}}">{{$batch->kode_batch}}</option>
-                        @endforeach
+                            <option value="selected disabled">-- Nomor Batch --</option>
+                            @foreach ($obat->batchObat as $key => $batch)
+                            <option value="{{$batch->id}}">{{$batch->kode_batch}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
+            </div>
+            <div class="position-relative form-group">
+                <label for="nama_distributor" class="">Nama Distributor</label>
+                <select name="nama_distributor" id="nama_distributor" class="form-control">
+                    <option value="selected disabled">-- Nama Distributor --</option>
+                    @foreach ($distributor as $dist)
+                    <option value="{{ $dist->id }}">{{ $dist->nama_distributor }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-row">
                 <div class="col-md-8">

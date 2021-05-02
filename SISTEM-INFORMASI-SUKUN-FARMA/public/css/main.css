@@ -2452,7 +2452,7 @@ textarea.form-control {
 }
 
 .form-group {
-    margin-bottom: 1rem
+    margin-bottom: 0.5rem
 }
 
 .form-text {
@@ -12443,7 +12443,6 @@ button,
 }
 
 .divider {
-    margin-top: 1rem;
     margin-bottom: 1rem;
     height: 1px;
     overflow: hidden;
@@ -16262,7 +16261,7 @@ a.badge-alternate:focus {
 .card-header>.nav .nav-link::before {
     content: '';
     border-radius: 15px;
-    background: #f8d568fc;
+    background: #3f6ad8;
     transition: all .2s;
     height: 4px;
     width: 100%;
@@ -16273,11 +16272,11 @@ a.badge-alternate:focus {
 }
 
 .card-header>.nav .nav-link:hover {
-    color: #f8d568fc;
+    color: #3f6ad8;
 }
 
 .card-header>.nav .nav-link.active {
-    color: #f8d568fc;
+    color: #3f6ad8;
 }
 
 .card-header>.nav .nav-link.active::before {
@@ -16390,8 +16389,7 @@ a.badge-alternate:focus {
     position: absolute;
     display: block;
     border-radius: .25rem;
-    background: #f8d568fc;
-    ;
+    background: #3f6ad8;
     transition: all .2s;
     height: 4px
 }
@@ -25714,3 +25712,13 @@ a.fc-more:hover {
     margin-bottom: 30px;
     background-size: 100%
 }
+
+    .img-images{
+        width: 25%;
+    }
+
+  @media only screen and (max-width: 768px) {
+    .img-images{
+        width: 50%;
+    }
+  }

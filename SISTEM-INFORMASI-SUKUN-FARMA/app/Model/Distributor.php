@@ -21,7 +21,7 @@ class Distributor extends Model
      */
     protected $guarded = [];
 
-    public function pengadaan() {
-        return $this->hasMany('App\Model\Pengadaan');
+    public function detailObat() {
+        return $this->hasMany('App\Model\ObatDetail');
     }
 }

@@ -137,17 +137,12 @@
                                     <i class="metismenu-icon pe-7s-rocket"></i>Dashboard
                                 </a>
                             </li>
-                            <li @if(in_array($page, ['semua_produk', 'kasir', 'resep', 'riwayat_transaksi'])) class="mm-active" @endif>
-                                <a href="#" @if(in_array($page, ['semua_produk', 'kasir', 'resep', 'riwayat_transaksi'])) aria-expanded="true" @else aria-expanded="false" @endif><i class="metismenu-icon pe-7s-calculator"></i>
+                            <li @if(in_array($page, ['kasir', 'resep'])) class="mm-active" @endif>
+                                <a href="#" @if(in_array($page, ['kasir', 'resep'])) aria-expanded="true" @else aria-expanded="false" @endif><i class="metismenu-icon pe-7s-calculator"></i>
                                     Kasir<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
                                 <ul>
                                     <li>
-                                        <a href="" @if($page == 'semua_produk') class="mm-active" @endif>
-                                            <i class="metismenu-icon"></i>Semua Produk
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" @if($page == 'kasir') class="mm-active" @endif>
+                                        <a href="{{url('kasir')}}" @if($page == 'kasir') class="mm-active" @endif>
                                             <i class="metismenu-icon"></i>Kasir
                                         </a>
                                     </li>
@@ -157,16 +152,10 @@
                                             </i>Resep
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#" @if($page == 'riwayat_transaksi') class="mm-active" @endif>
-                                            <i class="metismenu-icon">
-                                            </i>Riwayat Transaksi
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
-                            <li @if(in_array($page, ['obat', 'transaksi_masuk'])) class="mm-active" @endif>
-                                <a href="#" href="#" @if(in_array($page, ['obat', 'transaksi_masuk'])) aria-expanded="true" @else aria-expanded="false" @endif>
+                            <li @if(in_array($page, ['obat'])) class="mm-active" @endif>
+                                <a href="#" href="#" @if(in_array($page, ['obat'])) aria-expanded="true" @else aria-expanded="false" @endif>
                                     <i class="metismenu-icon pe-7s-box1"></i>
                                     Gudang
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
@@ -178,41 +167,29 @@
                                             </i>Obat
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#" @if($page == 'pengadaan') class="mm-active" @endif>
-                                            <i class="metismenu-icon">
-                                            </i>Pengadaan
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
-                            <li @if(in_array($page, ['pengeluaran', 'riwayat_penjualan', 'riwayat_pembelian', 'laba_rugi'])) class="mm-active" @endif>
-                                <a href="#" @if(in_array($page, ['pengeluaran', 'riwayat_penjualan', 'riwayat_pembelian', 'laba_rugi'])) aria-expanded="true" @else aria-expanded="false" @endif>
+                            <li @if(in_array($page, ['riwayat_pengeluaran', 'riwayat_penjualan','laba_rugi'])) class="mm-active" @endif>
+                                <a href="#" @if(in_array($page, ['riwayat_pengeluaran', 'riwayat_penjualan', 'laba_rugi'])) aria-expanded="true" @else aria-expanded="false" @endif>
                                     <i class="metismenu-icon pe-7s-notebook"></i>
                                     Akuntansi
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="{{ url('pengeluaran') }}" @if($page == 'pengeluaran') class="mm-active" @endif>
+                                        <a href="{{ url('riwayat-pengeluaran') }}" @if($page == 'riwayat_pengeluaran') class="mm-active" @endif>
                                             <i class="metismenu-icon">
-                                            </i>Pengeluaran
+                                            </i>Riwayat Pengeluaran
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" @if($page == 'riwayat_penjualan') class="mm-active" @endif>
+                                        <a href="{{ url('riwayat-penjualan') }}" @if($page == 'riwayat_penjualan') class="mm-active" @endif>
                                             <i class="metismenu-icon">
                                             </i>Riwayat Penjualan
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" @if($page == 'riwayat_pembelian') class="mm-active" @endif>
-                                            <i class="metismenu-icon">
-                                            </i>Riwayat Pembelian
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" @if($page == 'laba_rugi') class="mm-active" @endif>
+                                        <a href="{{ url('laba-rugi') }}" @if($page == 'laba_rugi') class="mm-active" @endif>
                                             <i class="metismenu-icon">
                                             </i>Laba / Rugi
                                         </a>
@@ -275,7 +252,7 @@
             </div>
             <!-- Main -->
             <div class="app-main__outer">
-                <div class="app-main__inner">
+                <div class="app-main__inner pt-3">
                     @yield('content')
                 </div>
 
@@ -306,6 +283,8 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     @yield('js')
 </body>
 

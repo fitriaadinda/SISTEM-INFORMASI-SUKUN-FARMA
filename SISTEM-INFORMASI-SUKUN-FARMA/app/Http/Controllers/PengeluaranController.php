@@ -35,7 +35,7 @@ class PengeluaranController extends Controller
         $pengeluaran->jumlah_pengeluaran = $input['jumlah'];
         $pengeluaran->save();
 
-        return redirect('pengeluaran')->with('success_message', 'Data berhasil ditambahkan');
+        return redirect('riwayat-pengeluaran')->with('success_message', 'Data berhasil ditambahkan');
     }
 
     public function edit(Request $request, $id){
@@ -57,7 +57,7 @@ class PengeluaranController extends Controller
         $pengeluaran->jumlah_pengeluaran = $input['jumlah'];
         $pengeluaran->save();
 
-        return redirect('pengeluaran')->with('success_message', 'Data berhasil diubah');
+        return redirect('riwayat-pengeluaran')->with('success_message', 'Data berhasil diubah');
     }
 
     public function destroy($id)
@@ -66,6 +66,6 @@ class PengeluaranController extends Controller
         if (!$pengeluaran) return redirect('pengeluaran')->with('error_message', 'Data tidak ditemukan');
         $pengeluaran->delete();
 
-        return redirect('pengeluaran')->with('success_message', 'Data berhasil dihapus');
+        return redirect('riwayat-pengeluaran')->with('success_message', 'Data berhasil dihapus');
     }
 }

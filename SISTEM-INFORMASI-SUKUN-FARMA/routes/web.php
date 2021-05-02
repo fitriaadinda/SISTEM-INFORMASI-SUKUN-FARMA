@@ -11,6 +11,11 @@ Route::middleware(['check.login'])->group(function () {
     // Dashboard
     Route::get('/', 'DashboardController@index');
 
+    // Kasir
+    Route::get('/kasir', 'KasirController@index');
+    Route::get('/kasir/invoice', 'KasirController@invoice');
+    Route::get('/kasir/obat/{id}', 'KasirController@detailObat');
+
     Route::middleware(['check.role:Superadmin,Kasir'])->group(function () {
         // CRUD RESEP
         Route::resource('resep', 'ResepController');
@@ -21,7 +26,13 @@ Route::middleware(['check.login'])->group(function () {
         Route::resource('user', 'UserController');
 
         //CRUD PENGELUARAN
-        Route::resource('pengeluaran', 'PengeluaranController');
+        Route::resource('riwayat-pengeluaran', 'PengeluaranController');
+
+        //LABA-RUGI
+        Route::get('laba-rugi', 'LabaRugiController@index');
+
+        //PENJUALAN
+        Route::get('riwayat-penjualan', 'PenjualanController@index');
     });
 
     Route::middleware(['check.role:Superadmin,Admin'])->group(function () {

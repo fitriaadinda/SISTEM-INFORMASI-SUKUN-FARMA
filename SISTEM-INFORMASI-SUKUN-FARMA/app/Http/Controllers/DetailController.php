@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Model\Obat;
 use App\Model\BatchObat;
+use App\Model\Distributor;
 use App\Model\ObatDetail;
 use App\Http\Requests\EditDetail;
+use App\Http\Requests\TambahDetail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -28,7 +30,8 @@ class DetailController extends Controller
      */
     public function tambah($id)
     {
-        $payload['obat'] = Obat::with('batchObat')->where('id', $id)->first();
+        $payload['distributor'] = Distributor::all();
+        $payload['obat'] = Obat::with(['batchObat'])->where('id', $id)->first();
         return view('obat/detail/tambah', $payload);
     }
 
@@ -46,6 +49,7 @@ class DetailController extends Controller
         $batch->detailObat()->create([
             'waktu_expired' => $input['waktu_expired'],
             'batch_id' => $input['kode_batch'],
+            'distributor_id' => $input['nama_distributor'],
             'harga_beli' => $input['harga_beli'],
             'stock' => $input['stock']
         ]);
@@ -72,6 +76,7 @@ class DetailController extends Controller
      */
     public function edit($id_detail)
     {
+        $payload['distributor'] = Distributor::all();
         $payload['batch'] = BatchObat::all();
         $payload['detail'] = ObatDetail::with('obat')->where('id', $id_detail)->first();
         // if (!$payload['detail']) return redirect('detail')->with('error_message', 'Data tidak ditemukan');
@@ -93,6 +98,7 @@ class DetailController extends Controller
         $obatDetail = ObatDetail::with('obat')->where(['id'=> $id_detail ])->first();
         $obatDetail->waktu_expired = $input['waktu_expired'];
         $obatDetail->batch_id = $input['kode_batch'];
+        $obatDetail->distributor_id = $input['nama_distributor'];
         $obatDetail->harga_beli = $input['harga_beli'];
         $obatDetail->stock = $input['stock'];
         $obatDetail->save();

@@ -10,7 +10,7 @@
 </style>
 @endsection
 @section('content')
-<form method="post" action="{{ url('pengeluaran/'.$pengeluaran->id) }}">
+<form method="post" action="{{ url('riwayat-pengeluaran/'.$pengeluaran->id) }}">
 @method('PUT')
 @csrf
     <h5 class="mb-2">Edit Data Pengeluaran</h5>

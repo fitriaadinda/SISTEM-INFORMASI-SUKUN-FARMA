@@ -1,4 +1,4 @@
-@extends('layout', ['page' => 'obat'])
+@extends('layout', ['page' => 'kasir'])
 @section('title','Detail Obat')
 @section('css')
 <style>
@@ -32,55 +32,10 @@
     </form>
 </div>
 
-<!-- Data Batch -->
-<div class="row">
-    <div class="col-md-6">
-        <h5>Data Batch {{ $obat->nama }}</h5>
-    </div>
-    <div class="col-md-6">
-        <button class="mb-3 mr-2 btn btn-primary float-right" data-toggle="modal" data-target="#tambahBatch">Tambah
-            Data</button>
-    </div>
-</div>
-<div class="main-card mb-5 card">
-    <div class="card-body">
-        <table id="batchTable" class="mb-0 table table-sm table-hover">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nomor Batch</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($obat->batchObat as $key => $batch)
-                <tr>
-                    <th scope="row">{{ $key + 1 }}</th>
-                    <td>{{ $batch->kode_batch }}</td>
-                    <td>
-                        <button class="mb-1 btn-transition btn btn-outline-dark btn-sm" data-toggle="modal"
-                            data-target="#editData-{{$batch->id}}">Edit</button>
-                        <form method="post" action="{{ url('batch/'.$batch->id) }}" style="display: inline">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="mb-1 btn-transition btn btn-outline-dark btn-sm">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
-
 <!-- Data Rincian -->
 <div class="row">
     <div class="col-md-6">
         <h5>Data Rincian {{ $obat->nama }}</h5>
-    </div>
-    <div class="col-md-6">
-        <a class="mb-3 mr-2 btn btn-primary float-right" href="{{ url('obat/' .$obat->id. '/detail/create') }}">Tambah
-            Data</a>
     </div>
 </div>
 <div class="card-border mb-3 card card-body border-secondary">
@@ -94,7 +49,6 @@
                     <th>Nama Distributor</th>
                     <th>Harga Beli</th>
                     <th>Stock</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -106,16 +60,6 @@
                     <td>{{ $detail->distributor->nama_distributor }}</td>
                     <td>{{ $detail->harga_beli }}</td>
                     <td>{{ $detail->stock }}</td>
-                    <td>
-                        <a class="mb-1 btn-transition btn btn-outline-dark btn-sm"
-                            href="{{ url('detail/' .$detail->id. '/edit') }}">Edit</a>
-                        <form method="post" action="{{ url('detail/'.$detail->id) }}" style="display: inline">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit"
-                                class="mb-1 btn-transition btn btn-outline-dark btn-sm">Delete</button>
-                        </form>
-                    </td>
                 </tr>
                 @endforeach
             </tbody>

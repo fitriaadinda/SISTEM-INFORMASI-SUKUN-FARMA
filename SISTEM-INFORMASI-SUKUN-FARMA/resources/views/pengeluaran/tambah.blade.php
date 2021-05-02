@@ -10,7 +10,7 @@
 </style>
 @endsection
 @section('content')
-<form method="post" action="{{ url('pengeluaran') }}">
+<form method="post" action="{{ url('riwayat-pengeluaran') }}">
 @csrf
     <h5 class="mb-3">Tambah Data Pengeluaran</h5>
     @if ($errors->any())

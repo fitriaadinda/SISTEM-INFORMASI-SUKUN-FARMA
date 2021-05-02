@@ -1,4 +1,4 @@
-@extends('layout', ['page' => 'pengeluaran'])
+@extends('layout', ['page' => 'riwayat_pengeluaran'])
 @section('title','List Pengeluaran')
 @section('css')
 <style>
@@ -13,7 +13,7 @@
 <h2 class="mb-5">DATA PENGELUARAN</h2>
 <div class="row">
     <div class="col-lg-6">
-        <a class="mb-3 mr-2 w-50 btn btn-primary" href="{{url('pengeluaran/create')}}">Tambah Pengeluaran</a>
+        <a class="mb-3 mr-2 w-50 btn btn-primary" href="{{url('riwayat-pengeluaran/create')}}">Tambah Pengeluaran</a>
     </div>
 </div>
 <div class="main-card mb-3 card">
@@ -40,8 +40,8 @@
                     <td>{{$p->keterangan}}</td>
                     <td>
                         <a class="mb-1 btn-transition btn btn-outline-dark btn-aksi"
-                            href="{{ url('pengeluaran/'.$p->id.'/edit') }}">Edit</a>
-                        <form method="post" action="{{('pengeluaran/'.$p->id)}}" style="display: inline">
+                            href="{{ url('riwayat-pengeluaran/'.$p->id.'/edit') }}">Edit</a>
+                        <form method="post" action="{{('riwayat-pengeluaran/'.$p->id)}}" style="display: inline">
                             @method('DELETE')
                             @csrf
                             <button type="submit"
